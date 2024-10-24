@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Image Display</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="image-gallery">
+        <div class="image-container">
+            <img src="images/pubsub-components.png" alt="Google Cloud Pub/Sub Architecture" class="display-image">
+            <div class="image-details">
+                <h2>Google Cloud Pub/Sub Architectural Overview</h2>
+                <p>Google Cloud Pub/Sub is a scalable, asynchronous messaging service designed to support real-time event-driven applications...</p>
+                <button class="more-info-btn" data-info="extra-info-1">Show More Info</button>
+            </div>
+        <div id="extra-info-1" class="hidden">
+            <p>Key Components:<br>
+                1. Publisher:<br>
+                
+                Publishers are applications, services, or IoT devices that send messages (events) to topics in Pub/Sub.
+                These messages are JSON, text, or binary data.
+                Examples: A SaaS application, an IoT sensor, or a web service publishing user activity events.<br><br>
+                
+                2. Topic:<br>
+                
+                A topic is a named resource to which publishers send their messages.
+                Each topic can have multiple publishers and subscribers.
+                Pub/Sub organizes messages into these topics for logical separation of event streams (e.g., user activity, sensor data).<br><br>
+                
+                3. Subscriber:<br>
+                
+                Subscribers consume messages from Pub/Sub by subscribing to topics.
+                There can be multiple subscribers to the same topic, with each subscriber receiving its copy of the message.
+                Subscribers can either be pull-based or push-based:
+                Pull: The subscriber application pulls messages from Pub/Sub.
+                Push: Pub/Sub pushes messages to an endpoint defined by the subscriber (like an HTTP server).<br><br>
+                
+                4. Subscription:<br>
+                
+                Subscriptions define how messages on a topic are delivered to the subscriber.
+                Subscriptions can be configured for real-time or batched processing.
+                Subscribers acknowledge messages, and unacknowledged messages can be redelivered.<br><br>
+                
+                5. Message Delivery:<br>
+                
+                Pub/Sub guarantees at-least-once delivery of messages.
+                Acknowledgements (ACKs) from subscribers confirm that the message has been successfully processed.
+                If no ACK is received, the message is redelivered to ensure reliability.<br><br>
+                
+                6. Message Storage and Retention:<br><br>
+                
+                Pub/Sub temporarily stores messages until they are delivered and acknowledged by subscribers.
+                Messages are retained for a configurable amount of time (up to 7 days) or until they are acknowledged.<br><br>
+                
+                7. Dead Letter Topics (DLT):<br>
+                
+                Dead letter topics are configured to handle messages that can't be processed successfully after multiple delivery attempts.
+                These undeliverable messages are moved to a dead letter topic for later analysis.<br><br>
+                
+                8. Data Flow Integration:<br>
+                
+                Pub/Sub + Data Processing Pipelines: Pub/Sub integrates well with other Google Cloud products like Cloud Dataflow, which allows real-time data processing.
+                Dataflow can be used to transform or process streams of data before sending them to storage solutions like BigQuery or Cloud Storage.<br><br>
+                
+                9. Security:<br>
+                
+                IAM (Identity and Access Management): Pub/Sub uses IAM to control who can publish to or subscribe from a topic.
+                Encryption: Data is encrypted at rest and in transit, ensuring data privacy and security.<br><br>
+                
+                10. Monitoring and Metrics:<br>
+                
+                Cloud Pub/Sub provides detailed monitoring via Cloud Monitoring and logging via Cloud Logging.
+                These tools help monitor message delivery rates, failures, and latency.
+                </p>
+        </div>
+    </div>
+    <div class="image-container">
+        <img src="images/dataflow.png" alt="Google Cloud Dataflow Architecture" class="display-image">
+        <div class="image-details">
+            <h2>Google Cloud Dataflow Architectural Overview</h2>
+            <p>Google Cloud Dataflow is a unified stream and batch data processing service that simplifies data transformations and movement...</p>
+            <button class="more-info-btn" data-info="extra-info-2">Show More Info</button>
+        </div>
+        <div id="extra-info-2" class="hidden">
+            <p>Key Components:<br>
+                1. Data Source:<br>
+                
+                Dataflow can process data from multiple sources such as Google Cloud Storage, Pub/Sub (streaming events), and BigQuery. Data is ingested into Dataflow pipelines from batch or streaming sources.<br><br>
+    
+                2. Pipelines and Transformations:<br>
+                
+                Dataflow pipelines are built using Apache Beam SDK and consist of transformations (e.g., Map, Group, Combine). These transformations operate on `PCollections` (data sets) and can be customized for different processing needs.<br><br>
+    
+                3. Streaming Engine:<br>
+                
+                The Streaming Engine is designed for processing real-time data streams. It decouples the scaling of the compute engine from the data processing, allowing for efficient and low-latency data processing.<br><br>
+    
+                4. Dynamic Work Rebalancer:<br>
+                
+                This component automatically rebalances the workload among workers to ensure optimal resource utilization during the pipeline execution. This ensures that all workers are efficiently processing the data.<br><br>
+    
+                5. Resource Auto-scaler:<br>
+                
+                Dataflow automatically adjusts the number of workers based on the workload. It scales up when data volume increases and scales down during periods of low activity, ensuring cost efficiency.<br><br>
+    
+                6. Dataflow SQL:<br>
+                
+                Users can write SQL queries to define data transformation logic in their pipelines. This is particularly useful for users with a SQL background who want to build data processing jobs quickly.<br><br>
+    
+                7. Shuffle Service:<br>
+                
+                The shuffle service manages the intermediate grouping and sorting of data between workers, optimizing parallel processing in batch pipelines.<br><br>
+    
+                8. Intelligent Watermarking:<br>
+                
+                Dataflow supports intelligent watermarking, which helps manage the timing and ordering of data in event time, especially important for real-time stream processing.<br><br>
+    
+                9. Sinks (Data Output):<br>
+                
+                After processing, the data can be sent to various storage solutions such as Google Cloud Storage, BigQuery, or other external systems for further use.<br><br>
+    
+                10. Monitoring and Logging:<br>
+                
+                Dataflow integrates with Google Cloud's monitoring tools (Cloud Monitoring and Cloud Logging) to provide detailed insights into pipeline performance, errors, and data processing metrics.
+            </p>
+        </div>
+    </div>
+            <div class="image-container">
+                <img src="images/big.png" alt="Google BigQuery Architecture" class="display-image">
+                <div class="image-details">
+                    <h2>Google BigQuery Architectural Overview</h2>
+                    <p>Google BigQuery is a fully-managed, serverless, and highly scalable enterprise data warehouse...</p>
+                    <button class="more-info-btn" data-info="extra-info-3">Show More Info</button>
+                </div>
+            <div id="extra-info-3" class="hidden">
+                <p>Key Components:<br>
+                    1. Storage:<br>
+                    
+                    BigQuery uses a columnar storage format that separates storage from compute. Data is stored in Google's highly available and durable infrastructure, with automatic replication and backup.<br><br>
+        
+                    2. Query Engine:<br>
+                    
+                    The BigQuery query engine executes SQL queries using massively parallel processing (MPP). Queries are split into smaller tasks that run across a distributed infrastructure, optimizing performance and speed.<br><br>
+        
+                    3. Serverless Architecture:<br>
+                    
+                    BigQuery is fully serverless, meaning users don’t need to manage any infrastructure. Google handles provisioning, scaling, and optimizing compute resources for your queries.<br><br>
+        
+                    4. Dremel Technology:<br>
+                    
+                    Under the hood, BigQuery uses Dremel, a highly distributed system that allows querying petabytes of data in seconds. Dremel provides the core of BigQuery’s execution engine, allowing for efficient and scalable querying.<br><br>
+        
+                    5. Streaming API:<br>
+                    
+                    BigQuery supports real-time data ingestion via its Streaming API, allowing applications to continuously stream data and make it available for immediate querying.<br><br>
+        
+                    6. BI Engine:<br>
+                    
+                    BI Engine is an in-memory analysis service that accelerates SQL queries for interactive dashboarding and data exploration tools like Google Data Studio.<br><br>
+        
+                    7. BigQuery ML:<br>
+                    
+                    BigQuery ML enables users to build and deploy machine learning models directly within BigQuery using SQL, without needing to export data to another service.<br><br>
+        
+                    8. Federated Querying:<br>
+                    
+                    BigQuery supports querying data across different storage systems such as Google Cloud Storage, Bigtable, and Spanner without moving the data into BigQuery, reducing overhead.<br><br>
+        
+                    9. Security and IAM:<br>
+                    
+                    BigQuery integrates with Google Cloud Identity and Access Management (IAM) to provide granular access control. Data is encrypted at rest and in transit to ensure security and compliance.<br><br>
+        
+                    10. Monitoring and Logging:<br>
+                    
+                    BigQuery integrates with Cloud Monitoring and Cloud Logging, providing visibility into query performance, cost tracking, and error logging for optimization and debugging.
+                </p>
+            </div>
+        </div>        
+            <div class="image-container">
+                <img src="images/looker.jpg" alt="Google Looker Architecture" class="display-image">
+                <div class="image-details">
+                    <h2>Google Looker Architectural Overview</h2>
+                    <p>Google Looker is a modern Business Intelligence (BI) platform that allows organizations to explore, analyze, and share data-driven insights at scale...</p>
+                    <button class="more-info-btn" data-info="extra-info-4">Show More Info</button>
+                </div>
+            <div id="extra-info-4" class="hidden">
+                <p>Key Components:<br>
+                    1. Data Integration:<br>
+                    
+                    Looker connects with multiple data sources and databases to offer an in-database architecture. This allows it to execute queries directly on the connected database systems, minimizing the need for data movement.<br><br>
+        
+                    2. Built-in Modern BI:<br>
+                    
+                    Looker offers a range of built-in analytics and reporting capabilities. It helps users build visual dashboards and reports, enabling real-time insights using governed metrics and governed connectors.<br><br>
+        
+                    3. Google Workspace Integration:<br>
+                    
+                    Looker integrates with Google Workspace, allowing users to embed data insights within applications like Google Sheets, Slides, or other Google Workspace tools. This seamless integration enables data collaboration and sharing across the organization.<br><br>
+        
+                    4. Governed BI Connectors:<br>
+                    
+                    Looker ensures consistent and accurate metrics across all data sources through governed BI connectors. This promotes trust in the insights generated across different teams and departments.<br><br>
+        
+                    5. Governed Metrics and Best-in-Class APIs:<br>
+                    
+                    Looker enforces a centralized metrics layer to provide standardized and consistent KPIs throughout the organization. It also offers best-in-class APIs to enable programmatic access to data and custom development of applications.<br><br>
+        
+                    6. Git Version Control:<br>
+                    
+                    Looker supports Git version control, allowing developers to manage changes to the data models and lookML scripts in a collaborative and controlled manner.<br><br>
+        
+                    7. Security:<br>
+                    
+                    Looker includes security features such as role-based access control, data encryption, and integration with Google Cloud’s Identity and Access Management (IAM) for secure and compliant data access.<br><br>
+        
+                    8. Cloud-Native Architecture:<br>
+                    
+                    As a cloud-native service, Looker leverages Google Cloud’s infrastructure for scaling, high availability, and redundancy. It also benefits from updates and enhancements without downtime.<br><br>
+        
+                    9. Scalability:<br>
+                    
+                    Looker is built to handle data from small to large-scale deployments. It offers a unified platform for BI, with the ability to query any database system, reducing complexities in scaling analytics.<br><br>
+        
+                    10. Monitoring and Logging:<br>
+                    
+                    Looker integrates with Cloud Monitoring and Logging services to provide visibility into user interactions, performance of queries, and data usage, helping teams optimize data operations.
+                </p>
+            </div>
+        </div>
+        <div id="image-modal" class="modal hidden">
+            <span class="close-modal">&times;</span>
+            <img id="modal-image" class="modal-content" alt="Enlarged image">
+        </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
