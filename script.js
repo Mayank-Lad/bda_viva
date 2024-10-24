@@ -73,6 +73,5 @@ document.addEventListener('DOMContentLoaded', () => {
             modalVideo.src = ""; // Reset video source
         }
     });
-});
 
 });
