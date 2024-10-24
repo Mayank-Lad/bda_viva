@@ -42,4 +42,37 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.style.display = "none";
         }
     });
+    // script.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    const videoOverlay = document.getElementById('video-overlay');
+    const mainVideo = document.getElementById('main-video');
+    const videoModal = document.getElementById('video-modal');
+    const modalVideo = document.getElementById('modal-video');
+    const closeModal = document.querySelector('#video-modal .close-modal');
+
+    // Play button click opens the modal and plays the video
+    videoOverlay.addEventListener('click', () => {
+        modalVideo.src = mainVideo.querySelector('source').src; // Set video source in modal
+        videoModal.classList.remove('hidden');
+        modalVideo.play();
+    });
+
+    // Close modal button event
+    closeModal.addEventListener('click', () => {
+        videoModal.classList.add('hidden');
+        modalVideo.pause();
+        modalVideo.src = ""; // Reset video source
+    });
+
+    // Close the modal when clicking outside the video
+    videoModal.addEventListener('click', (event) => {
+        if (event.target === videoModal) {
+            videoModal.classList.add('hidden');
+            modalVideo.pause();
+            modalVideo.src = ""; // Reset video source
+        }
+    });
+});
+
 });
