@@ -1,5 +1,6 @@
 // Ensure DOM is loaded before running the script
 document.addEventListener('DOMContentLoaded', () => {
+    
     // Toggle extra information visibility
     document.querySelectorAll('.more-info-btn').forEach(button => {
         button.addEventListener('click', () => {
