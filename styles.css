@@ -116,12 +116,12 @@ button:hover {
 .close-modal:hover {
     color: #ccc; /* Lighter color when hovered */
 }
-/* Video Container Styling */
+/* General container styling */
 .video-container {
     position: relative;
     display: block;
     margin: 30px auto;
-    max-width: 90%;
+    max-width: 100%;
     border: 2px solid #ddd;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -129,7 +129,7 @@ button:hover {
     overflow: hidden;
 }
 
-/* Video Overlay for Play Button */
+/* Video Overlay with Play Button */
 .video-overlay {
     position: absolute;
     top: 50%;
@@ -141,19 +141,47 @@ button:hover {
     justify-content: center;
 }
 
-/* Play Button Styling */
 .play-button {
     width: 80px;
     height: auto;
 }
 
-/* Hidden Video */
+/* Hidden video styling */
 video.hidden {
     display: none;
 }
 
-/* Modal Video Styling */
+/* Modal video container */
 #modal-video {
     width: 90%;
     max-height: 90%;
 }
+
+/* Modal styling for mobile responsiveness */
+@media (max-width: 768px) {
+    .video-container {
+        width: 100%;
+        margin: 15px auto;
+    }
+
+    #modal-video {
+        width: 95%;
+        height: auto;
+    }
+
+    .play-button {
+        width: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-container {
+        width: 100%;
+        margin: 10px auto;
+    }
+
+    .play-button {
+        width: 40px;
+    }
+}
+
