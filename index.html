@@ -229,9 +229,23 @@
                 </p>
             </div>
         </div>
-        <video width="640" height="360" controls>
+        <!-- Video Section -->
+<div class="video-container">
+    <div class="video-overlay" id="video-overlay">
+        <img src="images/play-button.png" alt="Play Button" class="play-button">
+    </div>
+    <video id="main-video" width="640" height="360" class="hidden">
         <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
     </video>
+</div>
+
+<!-- Video Modal -->
+<div id="video-modal" class="modal hidden">
+    <span class="close-modal">&times;</span>
+    <video id="modal-video" controls class="modal-content"></video>
+</div>
+
         
         <div id="image-modal" class="modal hidden">
             <span class="close-modal">&times;</span>
