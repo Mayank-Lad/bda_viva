@@ -42,9 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.style.display = "none";
         }
     });
-    // script.js
-
-document.addEventListener('DOMContentLoaded', () => {
     const videoOverlay = document.getElementById('video-overlay');
     const mainVideo = document.getElementById('main-video');
     const videoModal = document.getElementById('video-modal');
@@ -55,12 +52,14 @@ document.addEventListener('DOMContentLoaded', () => {
     videoOverlay.addEventListener('click', () => {
         modalVideo.src = mainVideo.querySelector('source').src; // Set video source in modal
         videoModal.classList.remove('hidden');
+        videoModal.style.display = "flex"; // Ensure modal is visible
         modalVideo.play();
     });
 
     // Close modal button event
     closeModal.addEventListener('click', () => {
         videoModal.classList.add('hidden');
+        videoModal.style.display = "none"; // Hide the modal
         modalVideo.pause();
         modalVideo.src = ""; // Reset video source
     });
@@ -69,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     videoModal.addEventListener('click', (event) => {
         if (event.target === videoModal) {
             videoModal.classList.add('hidden');
+            videoModal.style.display = "none"; // Hide the modal
             modalVideo.pause();
             modalVideo.src = ""; // Reset video source
         }
