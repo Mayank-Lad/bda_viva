@@ -115,3 +115,44 @@ button:hover {
 .close-modal:hover {
     color: #ccc; /* Lighter color when hovered */
 }
+/* Video Container Styling */
+.video-container {
+    position: relative;
+    display: block;
+    margin: 30px auto;
+    max-width: 90%;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* Video Overlay for Play Button */
+.video-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Play Button Styling */
+.play-button {
+    width: 80px;
+    height: auto;
+}
+
+/* Hidden Video */
+video.hidden {
+    display: none;
+}
+
+/* Modal Video Styling */
+#modal-video {
+    width: 90%;
+    max-height: 90%;
+}
